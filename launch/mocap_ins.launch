@@ -1,6 +1,6 @@
 <!--Basic launch file to get thor in the air with sensors connected to ros
     @author @len0rd
-    @since 2017-06-07 -->
+    @since 2018-10-04 -->
 
 <launch>
 
@@ -20,4 +20,10 @@
         <param name="stream_GPS" value="true" />
     </node>
 
+    <!-- Create a node that picks up on magicc's mocap system -->
+    <node pkg="vrpn_client_ros" type="vrpn_client_node" name="vrpn_client_node" output="screen">
+        <param name="refresh_tracker_frequency" value="1" />
+        <param name="server" value="192.168.1.186" />
+    </node>
+  
 </launch>
