@@ -25,5 +25,8 @@
         <param name="refresh_tracker_frequency" value="1" />
         <param name="server" value="192.168.1.186" />
     </node>
+
+    <!-- Tell the controller that we are flying -->
+    <node pkg="rostopic" type="rostopic" name="is_flying_pub" args="pub is_flying std_msgs/Bool true"/>    
   
 </launch>
