@@ -33,4 +33,6 @@
     <!-- Startup the vi_ekf node -->
     <node name="vi_ekf_node" type="vi_ekf_node" pkg="vi_ekf" output="screen"/>
     
+    <!-- bag imu, gps, ins, sonar, baro, mag, mocap -->
+    <node name="record" pkg="rosbag" type="record" args="/imu /gps /ins /sonar /baro /magnetometer /truth/pose" />
 </launch>

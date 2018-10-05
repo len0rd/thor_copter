@@ -1,6 +1,6 @@
 <!--Basic launch file to get thor in the air with sensors connected to ros
     @author @len0rd
-    @since 2018-10-04 -->
+    @since 2017-06-07 -->
 
 <launch>
 
@@ -20,17 +20,7 @@
         <param name="stream_GPS" value="true" />
     </node>
 
-    <!-- Create a node that picks up on magicc's mocap system -->
-    <node pkg="vrpn_client_ros" type="vrpn_client_node" name="vrpn_client_node" output="screen">
-        <param name="refresh_tracker_frequency" value="1" />
-        <param name="server" value="192.168.1.186" />
-        <remap from="vrpn/Thor/pose" to="truth/pose" />
-    </node>
-
     <!-- Tell the controller that we are flying -->
-    <node pkg="rostopic" type="rostopic" name="is_flying_pub" args="pub is_flying std_msgs/Bool true"/>    
-  
-    <!-- Startup the vi_ekf node -->
-    <node name="vi_ekf_node" type="vi_ekf_node" pkg="vi_ekf" output="screen"/>
-    
+    <node pkg="rostopic" type="rostopic" name="is_flying_pub" args="pub is_flying std_msgs/Bool true"/>
+
 </launch>
