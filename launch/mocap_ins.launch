@@ -24,7 +24,7 @@
     <node pkg="vrpn_client_ros" type="vrpn_client_node" name="vrpn_client_node" output="screen">
         <param name="refresh_tracker_frequency" value="1" />
         <param name="server" value="192.168.1.186" />
-        <remap from="vrpn/Thor/pose" to="truth/pose" />
+        <remap from="vrpn_client_node/Thor/pose" to="truth/pose" />
     </node>
 
     <!-- Tell the controller that we are flying -->

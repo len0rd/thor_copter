@@ -10,7 +10,6 @@ find_package(catkin REQUIRED COMPONENTS
   rosflight_msgs
   roscopter
   inertial_sense
-  vrpn_client_ros
 )
 
 ###################################
@@ -25,7 +24,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 # INCLUDE_DIRS include
 #  LIBRARIES thor
- CATKIN_DEPENDS roscopter rosflight_msgs inertial_sense vrpn_client_ros roscpp rospy
+ CATKIN_DEPENDS roscopter rosflight_msgs inertial_sense roscpp rospy
 #  DEPENDS system_lib
 )
 add_definitions(-std=c++11)
