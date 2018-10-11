@@ -4,6 +4,8 @@
 
 <launch>
 
+    <rosparam command="load" file="$(find thor_copter)/params/vi_ekf_params.yaml" ns="vi_ekf_node" />
+
     <!-- Start rosflight -->
     <node pkg="rosflight" type="rosflight_io" name="rosflight" output="screen">
         <param name="port" value="/dev/naze"/>

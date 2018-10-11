@@ -4,6 +4,8 @@
 
 <launch>
 
+    <rosparam command="load" file="$(find thor_copter)/params/vi_ekf_params.yaml" ns="vi_ekf_node" />
+
     <!-- Start rosflight -->
     <node pkg="rosflight" type="rosflight_io" name="rosflight" output="screen">
         <param name="port" value="/dev/naze"/>
@@ -22,5 +24,8 @@
 
     <!-- Tell the controller that we are flying -->
     <node pkg="rostopic" type="rostopic" name="is_flying_pub" args="pub is_flying std_msgs/Bool true"/>
+
+    <!-- bag imu, gps, ins, sonar, baro, mag -->
+    <node name="record" pkg="rosbag" type="record" args="/imu /gps /ins /sonar /baro /magnetometer" />
 
 </launch>
