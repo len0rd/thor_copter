@@ -4,22 +4,25 @@
 
 <launch>
 
-    <rosparam command="load" file="$(find thor_copter)/params/vi_ekf_params.yaml" ns="vi_ekf_node" />
-
-    <!-- Start rosflight -->
-    <node pkg="rosflight" type="rosflight_io" name="rosflight" output="screen">
-        <param name="port" value="/dev/naze"/>
-        <param name="baud" value="921600"/>
-    </node>
+    <rosparam command="load" file="$(find thorcopter)/params/vi_ekf_params.yaml" ns="vi_ekf_node" />
 
     <!-- Start inertial sense -->
     <node pkg="inertial_sense" type="inertial_sense_node" name="inertial_sense_node" output="screen">
         <param name="port" value="/dev/ttyUSB1" />
         <param name="INS_rpy" value="{0, 0, 4.7124}" />
         <param name="stream_IMU" value="true" />
-        <!-- <param name="stream_baro" value="true" />
-        <param name="stream_mag" value="true" /> -->
+        <!-- We only need imu and gps. turn off the default /ins topic to save bandwidth-->
+        <!-- <param name="stream_INS" value="false" /> -->
+        <param name="stream_baro" value="true" />
+        <!-- <param name="stream_mag" value="true" /> -->
         <param name="stream_GPS" value="true" />
+        <remap from="baro" to="ins/baro" />
+    </node>
+
+    <!-- Start rosflight -->
+    <node pkg="rosflight" type="rosflight_io" name="rosflight" output="screen">
+        <param name="port" value="/dev/naze"/>
+        <param name="baud" value="921600"/>
     </node>
 
     <!-- Create a node that picks up on magicc's mocap system -->
@@ -36,5 +39,5 @@
     <node pkg="roscopter" name="vi_ekf_node" type="vi_ekf_node" output="screen"/>
     
     <!-- bag imu, gps, ins, sonar, baro, mag, mocap -->
-    <node name="record" pkg="rosbag" type="record" args="/imu /gps /ins /sonar /baro /magnetometer /truth/pose" />
+    <node name="record" pkg="rosbag" type="record" args="/imu /gps /imu/data /ins /sonar /ins/baro /magnetometer /truth/pose" />
 </launch>

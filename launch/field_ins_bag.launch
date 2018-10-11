@@ -4,7 +4,7 @@
 
 <launch>
 
-    <rosparam command="load" file="$(find thor_copter)/params/vi_ekf_params.yaml" ns="vi_ekf_node" />
+    <rosparam command="load" file="$(find thorcopter)/params/vi_ekf_params.yaml" ns="vi_ekf_node" />
 
     <!-- Start rosflight -->
     <node pkg="rosflight" type="rosflight_io" name="rosflight" output="screen">
@@ -17,15 +17,18 @@
         <param name="port" value="/dev/ttyUSB1" />
         <param name="INS_rpy" value="{0, 0, 4.7124}" />
         <param name="stream_IMU" value="true" />
-        <!-- <param name="stream_baro" value="true" />
-        <param name="stream_mag" value="true" /> -->
+        <!-- We only need imu and gps. turn off the default /ins topic to save bandwidth-->
+        <!-- <param name="stream_INS" value="false" /> -->
+        <param name="stream_baro" value="true" />
+        <param name="stream_mag" value="true" />
         <param name="stream_GPS" value="true" />
+        <remap from="baro" to="ins/baro" />
     </node>
 
     <!-- Tell the controller that we are flying -->
     <node pkg="rostopic" type="rostopic" name="is_flying_pub" args="pub is_flying std_msgs/Bool true"/>
 
     <!-- bag imu, gps, ins, sonar, baro, mag -->
-    <node name="record" pkg="rosbag" type="record" args="/imu /gps /ins /sonar /baro /magnetometer" />
+    <node name="record" pkg="rosbag" type="record" args="/imu /gps /imu/data /ins/baro /mag /sonar /baro /magnetometer" />
 
 </launch>

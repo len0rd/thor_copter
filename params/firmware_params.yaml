@@ -83,7 +83,7 @@
 - {name: RUDDER_REV, type: 6, value: 0}
 - {name: STRM_AIRSPEED, type: 6, value: 20}
 - {name: STRM_ATTITUDE, type: 6, value: 200}
-- {name: STRM_BARO, type: 6, value: 50}
+- {name: STRM_BARO, type: 6, value: 0}
 - {name: STRM_HRTBT, type: 6, value: 1}
 - {name: STRM_IMU, type: 6, value: 250}
 - {name: STRM_MAG, type: 6, value: 50}
