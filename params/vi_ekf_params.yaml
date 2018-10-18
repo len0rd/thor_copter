@@ -4,7 +4,7 @@
 
 ## setup where to log to:
 
-log_directory: ~/logs,
+log_directory: /home/len0rd/logs,
 
 ## Initial Uncertainty
 P0: [0.001, 0.001, 0.001,
