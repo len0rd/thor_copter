@@ -1,0 +1,8 @@
+<launch>
+    <!-- NOTE: this only sets up the roscore and all the params for launch. 
+    You still need to call `rosrun roscopter vi_ekf_rosbag` with the proper parameters
+    to start everything running -->
+
+    <rosparam command="load" file="$(find thorcopter)/params/vi_ekf_params.yaml" ns="vi_ekf_rosbag" />
+    <rosparam command="load" file="$(find thorcopter)/params/vi_ekf_camera_params.yaml" ns="vi_ekf_rosbag" />
+</launch>

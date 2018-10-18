@@ -2,6 +2,10 @@
 ## These parameters are originally based off the params/gains.yaml
 ## file in the vi_ekf package
 
+## setup where to log to:
+
+log_directory: ~/logs,
+
 ## Initial Uncertainty
 P0: [0.001, 0.001, 0.001,
      0.001, 0.001, 0.001,
