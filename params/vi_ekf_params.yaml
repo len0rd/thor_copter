@@ -70,6 +70,7 @@ min_depth: 1.5,
 keyframe_overlap: 0.8,
 num_features: 20,
 feature_radius: 45,
+cov_prop_skips: 0,
 
 ## CPU Threads
 num_threads: 1,
