@@ -31,12 +31,10 @@
   <build_depend>roscpp</build_depend>
   <build_depend>rospy</build_depend>
   <build_depend>rosflight_msgs</build_depend>
-  <build_depend>inertial_sense</build_depend>
   <build_depend>vrpn_client_ros</build_depend>
   <run_depend>roscpp</run_depend>
   <run_depend>rospy</run_depend>
   <run_depend>rosflight_msgs</run_depend>
-  <run_depend>inertial_sense</run_depend>
   <run_depend>vrpn_client_ros</run_depend>
 
   <export>
