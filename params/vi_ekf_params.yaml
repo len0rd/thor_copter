@@ -56,14 +56,14 @@ truth_LPF: 0.0,
 use_truth: true,     # use mocap truth
 use_depth: false,
 use_features: false,  # use camera features
-use_acc: true,        
-use_imu_att: false,
+use_acc: false,        
+use_imu_att: true,
 use_alt: false,
 
 ## Feature Flags
-drag_term: true,
-partial_update: true,
-keyframe_reset: true,
+drag_term: false,
+partial_update: false,
+keyframe_reset: false,
 
 ## Tracking Paramters
 min_depth: 1.5,
