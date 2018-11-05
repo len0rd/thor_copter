@@ -1,0 +1,19 @@
+<!-- Launches a multirotor SIL vehicle in Gazebo -->
+
+<launch>
+
+  <arg name="mav_name"            value="multirotor"/>
+  <rosparam command="load" file="$(find thorcopter)/params/vi_ekf_params.yaml" ns="vi_ekf_rosbag" />
+  <rosparam command="load" file="$(find thorcopter)/params/vi_ekf_camera_params.yaml" ns="vi_ekf_rosbag" />
+
+  <include file="$(find rosflight_sim)/launch/multirotor.launch"/>
+
+  <node name="rosflight_io" pkg="rosflight" type="rosflight_io" output="screen" ns="$(arg mav_name)">
+    <param name="udp" value="true"/>
+  </node>
+
+  <node name="vi_ekf_node" pkg="vi_ekf" type="vi_ekf_node" output="screen" />
+
+  <node name="controller" pkg="multirotor_sim" type="multirotor_node" output="screen" />
+
+</launch>
