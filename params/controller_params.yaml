@@ -7,7 +7,7 @@ random_seed: -1 # -1 initializes seed with time
 #   1 : random waypoints
 #   2 : circular trajectory
 #   3 : constant velocity, randomly varying heading
-path_type: 2
+path_type: 0
 
 # User-defined waypoints
 waypoints: [    
