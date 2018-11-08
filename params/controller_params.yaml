@@ -10,14 +10,19 @@ random_seed: -1 # -1 initializes seed with time
 path_type: 0
 
 # User-defined waypoints
-waypoints: [    
-            10, 0, -5, .705,
-            10, 10, -4, 3.0,
-            -10, 10, -5.5, -1.5,
-            -10, -7, -5, .80,
-            -8, -12, -4.5, -2.3,
-            8, -5, -4, 1.7
-            ]
+# waypoints: [    
+#             10, 0, -5, .705,
+#             10, 10, -4, 3.0,
+#             -10, 10, -5.5, -1.5,
+#             -10, -7, -5, .80,
+#             -8, -12, -4.5, -2.3,
+#             8, -5, -4, 1.7
+#             ]
+
+waypoints: [
+  0, 0, -1, 0
+]
+
 
 # Random waypoints parameters
 num_random_waypoints: 30
@@ -63,9 +68,9 @@ Kp: [1, 0, 0,
 Kd: [0, 0, 0,
      0, 0, 0,
      0, 0, 0]
-Kv: [2, 0, 0,
-     0, 2, 0,
-     0, 0, 2]
+Kv: [1, 0, 0,
+     0, 1, 0,
+     0, 0, 1]
 
 roll_kp: 10.0
 roll_ki: 0.0
